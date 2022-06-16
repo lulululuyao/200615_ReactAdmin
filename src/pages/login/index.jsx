@@ -9,6 +9,7 @@ export default class Login extends Component {
           <img src='' alt='logo'></img>
           <h1>React项目：后台管理系统</h1>
         </header>
+        <header className='login-header'></header>
         <section className='login-content'></section>
       </div>
     )
