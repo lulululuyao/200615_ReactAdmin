@@ -4,7 +4,34 @@
   background-image: url('images/background.jpg');
   background-size: 100% 100%;
 }
-#root {
-  height: 100%;
+.login .login-header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: rgba(238, 155, 238, 0.603);
+}
+.login .login-header img {
+  width: 40px;
+  height: 40px;
+  margin: 0 15px 0 50px;
+}
+.login .login-header h1 {
+  font-size: 30px;
+  color: white;
+  margin: 0;
+}
+.login .login-content {
+  width: 400px;
+  height: 300px;
+  background-color: rgba(238, 238, 238, 0.7);
+  margin: 50px auto;
+  padding: 20px 40px;
+}
+.login .login-content h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.login .login-content .login-form .login-form-btn {
   width: 100%;
 }
