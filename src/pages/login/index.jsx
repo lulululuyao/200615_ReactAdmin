@@ -12,6 +12,20 @@ export default class Login extends Component {
   onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+  validatorPwd = (_, value)=>{
+    if (!value ) {
+      return Promise.reject(new Error('密码必须输入！'));
+    }else if(value.length < 4){
+      return Promise.reject(new Error('密码长度不能小于4位！'));
+    }
+    else if(value.length > 12){
+      return Promise.reject(new Error('密码长度不能大于12位！'));
+    }else if(/^[a-zA-Z0-9_]+$/.test(value)){
+      return Promise.reject(new Error('密码必须是英文、数字或下划线组成'));
+    }else{
+      return Promise.resolve();
+    }
+  }
   render () {
     return (
       <div className='login'>
@@ -24,10 +38,20 @@ export default class Login extends Component {
           <div>
             <Form className='login-form' name='basic' initialValues={{ remember: true }}
               onFinish={this.onFinish} onFinishFailed={this.onFinishFailed} autoComplete='off'>
-              <Form.Item name='username' rules={[{required: true,message: 'Please input your username!'}]}>
+              <Form.Item name='username'
+                // 声明式验证：直接使用定义好的的验证规则进行验证 
+                rules={[
+                  { required: true, whitespace: true, message: '用户名必须输入' },
+                  { min: 4, message: '用户名至少4位' },
+                  { max: 12, message: '用户名最多12位' },
+                  { pattern: /^[a-zA-Z0-9_]+$/, message: '用户名必须是英文、数字或下划线组成' },
+               ]}>
                 <Input prefix={<UserOutlined className="site-form-item-icon" style={{color:'rgba(0,0,0,.25'}}/>} placeholder="Username" />
               </Form.Item>
-              <Form.Item name='password' rules={[{required: true,message: 'Please input your password!'}]}>
+              <Form.Item name='password' 
+                rules={[
+                  {validator:this.validatorPwd}
+               ]}>
                 <Input prefix={<LockOutlined className="site-form-item-icon" style={{color:'rgba(0,0,0,.25'}}/>} type="password" placeholder="Password"/>
               </Form.Item>
               <Form.Item name='remember' valuePropName='checked' >
