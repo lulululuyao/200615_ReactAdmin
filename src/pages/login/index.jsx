@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import './login.less'
 import logo from './images/logo.png'
-<<<<<<< HEAD
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-=======
->>>>>>> 22eb8b38e67a9333d98e729feeca5871a33d3b38
 import { Button, Checkbox, Form, Input } from 'antd'
 
 export default class Login extends Component {
