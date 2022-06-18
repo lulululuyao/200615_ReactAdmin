@@ -7,7 +7,11 @@
 .login .login-header {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   height: 70px;
+=======
+  height: 60px;
+>>>>>>> 22eb8b38e67a9333d98e729feeca5871a33d3b38
   background-color: rgba(238, 155, 238, 0.603);
 }
 .login .login-header img {
